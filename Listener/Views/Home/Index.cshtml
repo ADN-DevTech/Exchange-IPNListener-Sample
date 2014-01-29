@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Cloud Rendering!";
+}
+
+@section Scripts
+{
+<script src="@Url.Content("~/Scripts/index.js")" type="text/javascript"></script>
+}
+
+
+<div>
+<h1 style="text-align:center"> Cloud Rendering Services</h1>
+<br />
+
+  <h2 style="float:left;width:700px; margin-left:30px;">@ViewBag.Message</h2>
+@if (string.IsNullOrWhiteSpace(ViewBag.User) == true)
+{
+  <a href="" id="signin" ><h2 style="float:left;width:200px; margin-left:30px;color:Blue">Sign In</h2></a>
+}
+else
+{
+  <a href="" id="signout" ><h2 style="float:left;width:200px; margin-left:30px;color:Blue">Sign Out</h2></a>
+}
+</div>
+<div style="text-align: center;">
+<img src="../../Content/images/mainframe.png" style="width:1000px;"></img>
+</div>
+
