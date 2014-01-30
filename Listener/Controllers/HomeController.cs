@@ -8,18 +8,18 @@ using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
-using Autodesk.Cloud.Core.Email;
-using Autodesk.Cloud.Core.Email.Configuration;
 using System.Configuration;
 
 namespace Listener.Controllers
 {
     public class HomeController : Controller
     {
-        //replace with your real web service url
-        const string WEB_SERVICE_URL = "http://localhost:48297/home/index";
-        const string FROM_EMAIL_ADDRESS = "renderservice@gmail.com";
-        const string FROM_PASSWORD = "pass@word";
+        //This sample uses gmail to send email notification to customer, you may need to use your exchange server.
+        //replace with your gmail address and password.
+        #region change the const settings here
+        const string FROM_EMAIL_ADDRESS = "youusername@gmail.com";
+        const string FROM_PASSWORD = "<your password>";
+        #endregion
 
         public ActionResult Index(string user="")
         {
@@ -128,11 +128,12 @@ namespace Listener.Controllers
             {
                 NetLog.WriteTextLog("start to send email to " + email + "with name:" + username);
 
+                string webserviceUrl = Convert.ToString(String.IsNullOrEmpty(ConfigurationManager.AppSettings["webserviceUrl"])
+                                         ? "" : ConfigurationManager.AppSettings["webserviceUrl"]);
 
                 string bodyTemplate = @"Hi {0},<br/><br/>Thank you for selecting Cloud Rendering! Please access the Web Service with below information.<br/>User name: {1} <br/>Password: {2}<br/>The link is: {3}. <br/><br/>Thanks,<br/>Cloud Rendering Team.";
 
-                string body = string.Format(bodyTemplate, username, username,password,
-                    WEB_SERVICE_URL);
+                string body = string.Format(bodyTemplate, username, username,password,webserviceUrl);
 
                 var fromAddress = new MailAddress(FROM_EMAIL_ADDRESS);
                 var toAddress = new MailAddress(email);

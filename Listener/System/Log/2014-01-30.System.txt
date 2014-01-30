@@ -1,0 +1,246 @@
+Time:    2014/1/30 2:39:25
+Message: transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:39:25
+Message: HomeController[HandleIPNNotification]: posting to Autodesk Exchange: http://localhost:36911/ValidateIPN.aspx
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:39:25
+Message: HomeController[HandleIPNNotification]: Sending notification to Autodesk Exchange for validate:transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:39:26
+Message: HomeController[HandleIPNNotification]: strResponse is: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:39:26
+Message: start to send email to changyudu@163.comwith name:changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:39:29
+Message: PaymentProvider[HandleIPNNotification]: Error to get IPN validation info from Autodesk. strResponse is: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:40:58
+Message: transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:40:58
+Message: HomeController[HandleIPNNotification]: posting to Autodesk Exchange: http://localhost:36911/ValidateIPN.aspx
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:40:58
+Message: HomeController[HandleIPNNotification]: Sending notification to Autodesk Exchange for validate:transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:40:58
+Message: HomeController[HandleIPNNotification]: strResponse is: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:40:58
+Message: start to send email to changyudu@163.comwith name:changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:41:02
+Message: PaymentProvider[HandleIPNNotification]: Error to get IPN validation info from Autodesk. strResponse is: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:41:36
+Message: transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:41:47
+Message: HomeController[HandleIPNNotification]: posting to Autodesk Exchange: http://localhost:36911/ValidateIPN.aspx
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:41:51
+Message: HomeController[HandleIPNNotification]: Sending notification to Autodesk Exchange for validate:transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:42:11
+Message: HomeController[HandleIPNNotification]: strResponse is: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:42:22
+Message: start to send email to changyudu@163.comwith name:changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:42:48
+Message: System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: An operation was attempted on something that is not a socket 173.194.79.109:587
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:42:48
+Message: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:43:30
+Message: transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:43:32
+Message: HomeController[HandleIPNNotification]: posting to Autodesk Exchange: http://localhost:36911/ValidateIPN.aspx
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:43:32
+Message: HomeController[HandleIPNNotification]: Sending notification to Autodesk Exchange for validate:transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:43:32
+Message: HomeController[HandleIPNNotification]: strResponse is: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:43:33
+Message: start to send email to changyudu@163.comwith name:changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:43:38
+Message: Send email to changyudu@163.comwith name:changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 2:43:38
+Message: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:29:09
+Message: transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:29:38
+Message: HomeController[HandleIPNNotification]: posting to Autodesk Exchange: http://localhost:36911/ValidateIPN.aspx
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:29:38
+Message: HomeController[HandleIPNNotification]: Sending notification to Autodesk Exchange for validate:transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:29:38
+Message: HomeController[HandleIPNNotification]: strResponse is: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:29:38
+Message: start to send email to changyudu@163.comwith name:changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:29:43
+Message: Send email to changyudu@163.comwith name:changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:29:43
+Message: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:33:16
+Message: transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:34:18
+Message: HomeController[HandleIPNNotification]: posting to Autodesk Exchange: http://localhost:36911/ValidateIPN.aspx
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:34:38
+Message: HomeController[HandleIPNNotification]: Sending notification to Autodesk Exchange for validate:transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:34:44
+Message: HomeController[HandleIPNNotification]: strResponse is: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:34:44
+Message: start to send email to changyudu@163.comwith name:changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:34:48
+Message: Send email to changyudu@163.comwith name:changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:34:48
+Message: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:34:58
+Message: transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:35:13
+Message: HomeController[HandleIPNNotification]: posting to Autodesk Exchange: http://localhost:36911/ValidateIPN.aspx
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:35:19
+Message: HomeController[HandleIPNNotification]: Sending notification to Autodesk Exchange for validate:transaction_subject=200703030249937&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au&payment_type=instant&protection_eligibility=Ineligible&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8&item_number=appstore.exchange.autodesk.com%3acloudrendering%3aen&handling_amount=0.00&payment_status=Completed&payment_fee=0.43&mc_fee=0.43&shipping=0.00&mc_gross=5.50&custom=200703030249937&charset=windows-1252&notify_version=3.7&auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA&form_charset=UTF-8&buyer_adsk_account=changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:35:24
+Message: HomeController[HandleIPNNotification]: strResponse is: Verified
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:36:07
+Message: start to send email to changyudu@163.comwith name:changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:36:13
+Message: Send email to changyudu@163.comwith name:changyudu@163.com
+-----------------------------------------------------------
+
+
+Time:    2014/1/30 3:36:17
+Message: Verified
+-----------------------------------------------------------
+
+
