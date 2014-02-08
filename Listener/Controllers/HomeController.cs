@@ -17,8 +17,8 @@ namespace Listener.Controllers
         //This sample uses gmail to send email notification to customer, you may need to use your exchange server.
         //replace with your gmail address and password.
         #region change the const settings here
-        const string FROM_EMAIL_ADDRESS = "youusername@gmail.com";
-        const string FROM_PASSWORD = "<your password>";
+        const string FROM_EMAIL_ADDRESS = "yourname@gmail.com";
+        const string FROM_PASSWORD = "password";
         #endregion
 
         public ActionResult Index(string user="")
@@ -275,6 +275,10 @@ namespace Listener.Controllers
 
                     //inform the customer how he can access your service with his intial account
                     SendEmailToBuyer(email, email, pwd);
+                }
+                else
+                {
+                    NetLog.WriteTextLog("HomeController[HandleIPNNotification]: IPN notifiacation is not verified. Someone is hacking me? Response is: " + strResponse);
                 }
             }
             catch (System.Exception ex)

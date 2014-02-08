@@ -35,6 +35,11 @@
         When customer buy an app/webservice, an IPN notification send to IPN Listener.<br />
         <br />
         <br />
+        For local test/debug, set the IPN validation URL to following url in your IPN 
+        Listener :
+        <br />
+        <asp:HyperLink ID="linkValidationIPN" runat="server">[linkValidationIPN]</asp:HyperLink>
+        <br />
         -------------------------<br />
     
     </div>
