@@ -233,6 +233,12 @@ namespace Listener.Controllers
                     return "Unknown App";
                 }
 
+                string payment_status = Request["payment_status"];
+                if (String.Compare(payment_status,"Completed", true) != 0)
+                {
+                    NetLog.WriteTextLog("HomeController[HandleIPNNotification]: payment not completed yet.");
+                    return "Not paied";
+                }
 
 
                 // POST IPN notification back to Autodesk Exchange to validate
@@ -247,6 +253,9 @@ namespace Listener.Controllers
                 req.Method = "POST";
                 req.ContentType = "application/x-www-form-urlencoded";
                 string strRequest = notification;
+                #region Required for Autodesk Exchange staging server
+                req.Headers["Cookie"] = "RequestAccessCookie=Aut0d3sk!";
+                #endregion
 
                 NetLog.WriteTextLog("HomeController[HandleIPNNotification]: Sending notification to Autodesk Exchange for validate:" + strRequest);
                 //Send the request to Autodesk and get the response
