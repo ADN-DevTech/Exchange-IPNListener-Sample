@@ -33,11 +33,11 @@ IIS Setup:
 
 * build the Listener solution;
 
-* copy the bin files to the client box, e.g. C:\aTest\Appstore.Web\bin;
+* publish the website to the client box;
 
 * Create a new Web Site in IIS called ‘IPNListener”
 
-* Set the Physical path to IPNListener(C:\aTest\Appstore.Web);
+* Set the Physical path to IPNListener;
 
 * In  the Application Pools, make sure IPNListener .Net framework is set to v4.0.
 
