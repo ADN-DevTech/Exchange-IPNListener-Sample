@@ -23,7 +23,7 @@
         <br />
     
        AppId:&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtAppId" runat="server" Width="693px">appstore.exchange.autodesk.com:cloudrendering:en</asp:TextBox>
+        <asp:TextBox ID="txtAppId" runat="server" Width="693px">appstore.exchange.autodesk.com:danielrendering:en</asp:TextBox>
         <br />
         Buyer Email:&nbsp;
         <asp:TextBox ID="txtBuyerEmail" runat="server" Width="693px">changyudu@163.com</asp:TextBox>
@@ -31,6 +31,11 @@
         <asp:Button ID="btnBuy" runat="server" onclick="btnBuy_Click" Text="Buy this app" 
             Height="35px" Width="165px" />
         <br />
+        <br />
+        <asp:Button ID="btnSubscribe" runat="server"  
+            Text="Subscribe this app" onclick="btnSubscribe_Click" />
+&nbsp;<asp:Button ID="btnRenew" runat="server" onclick="btnRenew_Click" 
+            Text="Renew my subscription" />
         <br />
         When customer buy an app/webservice, an IPN notification send to IPN Listener.<br />
         <br />
