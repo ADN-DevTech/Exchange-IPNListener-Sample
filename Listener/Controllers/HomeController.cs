@@ -21,7 +21,7 @@ namespace Listener.Controllers
         //replace with your gmail address and password.
         #region change the const settings here
         const string FROM_EMAIL_ADDRESS = "yourname@gmail.com";
-        const string FROM_PASSWORD = "your password";
+        const string FROM_PASSWORD = "password";
 
         const string EXCHANGE_BASE_URL = "http://apps.exchange.autodesk.com/";
         //replace your Autodesk ID or email address here 
@@ -304,11 +304,16 @@ namespace Listener.Controllers
                 if (verified)
                 {
                     //If the IPN notification is valid one, then it was sent from Autodesk Exchange Store, 
-                    
-                  
+
+                    //publisher can track the signup and payment status by subscr_id
+                    //IPN of signup/first payment/renew/cancel have same subscr_id
+                    string subscription_id = "";
+
                     string txn_type = Request["txn_type"];
                     if (txn_type == "subscr_signup")  // subscription signup
                     {
+                        subscription_id = Request["subscr_id"]; // subscription id
+
                         string subject = "Thank you for subscription ";
                         string body = "You have subscribed this app/web service:" + thisapp
                             + " for " + Request["period3"]  //TODO: tranlate the period3 value into more user friendly msg
@@ -318,8 +323,11 @@ namespace Listener.Controllers
 
 
                     }
-                    else if (txn_type == "subscr_payment") //subscription payment
+                    else if (txn_type == "subscr_payment") //subscription payment or renew
                     {
+                        
+                        subscription_id = Request["subscr_id"]; // subscription id
+
                         string subject = "Thank you for subscription payment";
                         string body = "You have paied your subscription of app/web service:" + thisapp
                             + " on  " + Request["payment_date"];
