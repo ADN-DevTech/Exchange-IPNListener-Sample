@@ -9,16 +9,23 @@ using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Configuration;
+using System.Web.Script.Serialization;
+using Listener.Models;
 
 namespace Listener.Controllers
 {
     public class HomeController : Controller
     {
+
         //This sample uses gmail to send email notification to customer, you may need to use your exchange server.
         //replace with your gmail address and password.
         #region change the const settings here
         const string FROM_EMAIL_ADDRESS = "yourname@gmail.com";
-        const string FROM_PASSWORD = "password";
+        const string FROM_PASSWORD = "your password";
+
+        const string EXCHANGE_BASE_URL = "http://apps.exchange.autodesk.com/";
+        //replace your Autodesk ID or email address here 
+        const string PUBLISHER_AUTODESK_ID_OR_EMAILADDRESS = "daniel.du@autodesk.com";
         #endregion
 
         public ActionResult Index(string user="")
@@ -82,20 +89,24 @@ namespace Listener.Controllers
 
         protected string GetIpnValidationUrl()
         {
-            //Default to empty string
-            string validationUrl = Convert.ToString(String.IsNullOrEmpty(ConfigurationManager.AppSettings["validationUrl"])
-                                         ? "" : ConfigurationManager.AppSettings["validationUrl"]);
-            if (string.IsNullOrWhiteSpace(validationUrl))
-            {
-                //Autodesk Exchange Store IPN validation URL
-                return @"http://exchange.autodesk.com/WebServices/ValidateIPN";
-            }
-            return validationUrl;
+            
+                //Default to empty string
+                string validationUrl = Convert.ToString(String.IsNullOrEmpty(ConfigurationManager.AppSettings["validationUrl"])
+                                             ? "" : ConfigurationManager.AppSettings["validationUrl"]);
+                if (string.IsNullOrWhiteSpace(validationUrl))
+                {
+                    //Autodesk Exchange Store IPN validation URL
+                    return @"https://apps.exchange.autodesk.com/WebServices/ValidateIPN";
+                }
+                return validationUrl;
+           
         }
 
         //get my published apps or web services
-        protected List<string> GetMyPublishedApps()
+        protected List<string> GetMyPublishedApps(string publisherAutodeskIdOrEmail)
         {
+
+
             //Default to empty string
             string myAppIds = Convert.ToString(String.IsNullOrEmpty(ConfigurationManager.AppSettings["myappids"])
                                          ? "" : ConfigurationManager.AppSettings["myappids"]);
@@ -104,10 +115,52 @@ namespace Listener.Controllers
                 return null;
             }
             return myAppIds.Split(';').ToList();
+
+            #region Get live Apps, not completed yet
+
+            //List<string> appIds = new List<string>();
+
+            //var postUrl = EXCHANGE_BASE_URL + "webservices/GetLiveApps?user="
+            //    + publisherAutodeskIdOrEmail;
+
+            //NetLog.WriteTextLog("HomeController[HandleIPNNotification - ]: posting to Autodesk Exchange: " + postUrl);
+
+            //HttpWebRequest req = (HttpWebRequest)WebRequest.Create(postUrl);
+
+            
+            //req.Method = "GET";
+            //req.ContentType = "application/json";
+         
+
+            ////Send the request to Autodesk and get the response
+            ////StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII);
+            ////streamOut.Write(strRequest);
+            ////streamOut.Close();
+
+            //StreamReader streamIn = new StreamReader(req.GetResponse().GetResponseStream());
+            //string strResponse = streamIn.ReadToEnd();
+            //streamIn.Close();
+
+            //NetLog.WriteTextLog("HomeController[HandleIPNNotification - ]: strResponse is: " + strResponse);
+
+
+            ////convert response string to object
+            //JavaScriptSerializer serializer = new JavaScriptSerializer();
+            //var liveAppsResult = serializer.Deserialize<GetLiveAppsResult>(strResponse);
+            //foreach (var item in liveAppsResult.LiveApps)
+            //{
+            //    appIds.Add(item.ID);
+            //}
+
+            //return appIds;
+            #endregion
+
         }
 
         public void IPNListener()
         {
+            NetLog.WriteTextLog("====================Process Start =========================");
+
             string ipnNotification = Encoding.ASCII.GetString(Request.BinaryRead(Request.ContentLength));
             if (ipnNotification.Trim() == string.Empty)
             {
@@ -118,47 +171,27 @@ namespace Listener.Controllers
 
             string validationMessage = HandleIPNNotification(ipnNotification);
             NetLog.WriteTextLog(validationMessage);
+
+            NetLog.WriteTextLog("====================Process End =========================");
         }
 
-        public void SendEmailToBuyer(string email="", string username="", string password="")
+        public void SendAccountInfoToBuyer(string email="", string username="", string password="")
         {
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(username))
                 return;
             try
             {
                 NetLog.WriteTextLog("start to send email to " + email + "with name:" + username);
-
-                string webserviceUrl = Convert.ToString(String.IsNullOrEmpty(ConfigurationManager.AppSettings["webserviceUrl"])
-                                         ? "" : ConfigurationManager.AppSettings["webserviceUrl"]);
+               
+                string webserviceUrl = Convert.ToString(String.IsNullOrEmpty(Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("webserviceUrl"))
+                                         ? "" : Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("webserviceUrl"));
 
                 string bodyTemplate = @"Hi {0},<br/><br/>Thank you for selecting Cloud Rendering! Please access the Web Service with below information.<br/>User name: {1} <br/>Password: {2}<br/>The link is: {3}. <br/><br/>Thanks,<br/>Cloud Rendering Team.";
 
                 string body = string.Format(bodyTemplate, username, username,password,webserviceUrl);
 
-                var fromAddress = new MailAddress(FROM_EMAIL_ADDRESS);
-                var toAddress = new MailAddress(email);
-                const string fromPassword = FROM_PASSWORD;
                 string subject = "You account for Cloud Rendering";
-   
-                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
-                {
-                    Host = "smtp.gmail.com",
-                    Port = 587,
-                    EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-                };
-
-                using (var message = new MailMessage(fromAddress, toAddress)
-                {
-                    Subject = subject,
-                    Body = body, 
-                    IsBodyHtml = true
-                })
-                {
-                    smtp.Send(message);
-                }
+                SendEmail(email, subject, body);
 
   
                 NetLog.WriteTextLog("Send email to " + email + "with name:" + username);
@@ -166,6 +199,34 @@ namespace Listener.Controllers
             catch (Exception ex)
             {
                 NetLog.WriteTextLog("fail to send email, the error is :" + ex.Message + ex.InnerException != null ? ex.InnerException.ToString() : "" + ex.StackTrace);
+            }
+        }
+
+        private static void SendEmail(string toEmail, string subject, string body)
+        {
+            var fromAddress = new MailAddress(FROM_EMAIL_ADDRESS);
+            var toAddress = new MailAddress(toEmail);
+            const string fromPassword = FROM_PASSWORD;
+           
+
+            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+
+            using (var message = new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+            {
+                smtp.Send(message);
             }
         }
 
@@ -219,75 +280,102 @@ namespace Listener.Controllers
             */
             string strResponse = "Unknown";
 
+            //TODO: Check whether this message has been handled already,
+            //If hanlded, return.
+
             try
             {
                 //Pass-through variable for you to track purchases. It will get passed back to you at the completion of the payment.
                 //The value is the appid of app/webservice which is bought by customer
-                string thisapp = Request["item_number"];
+                string thisapp = HttpUtility.UrlDecode(Request["item_number"]);
 
-                List<string> apps = GetMyPublishedApps();
-
-                if (apps == null || string.IsNullOrWhiteSpace(thisapp) || apps.Contains(thisapp) == false)
+                bool isMyApp = Preprocess_CheckAppId(thisapp);
+                if (!isMyApp)
                 {
-                    NetLog.WriteTextLog("HomeController[HandleIPNNotification]: Not my App, just return.");
-                    return "Unknown App";
-                }
-
-                string payment_status = Request["payment_status"];
-                if (String.Compare(payment_status,"Completed", true) != 0)
-                {
-                    NetLog.WriteTextLog("HomeController[HandleIPNNotification]: payment not completed yet.");
-                    return "Not paied";
+                    return "Unknow App, not notification for me.";
                 }
 
 
                 // POST IPN notification back to Autodesk Exchange to validate
-                //https://developer.paypal.com/webapps/developer/docs/classic/ipn/ht_ipn/
-                //For Autodesk Exchange Store, you do not need to contact with Paypal directly, valide with Autodesk Exchange
-                var postUrl = GetIpnValidationUrl();
-                NetLog.WriteTextLog("HomeController[HandleIPNNotification]: posting to Autodesk Exchange: " + postUrl);
+                // whether it is a validate ipn notification from Autodesk Exchange
+                bool verified = VerifyIpnValidation(notification, thisapp);
+
                 
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(postUrl);
-
-                //Set values to post to Autodesk
-                req.Method = "POST";
-                req.ContentType = "application/x-www-form-urlencoded";
-                string strRequest = notification;
-                #region Required for Autodesk Exchange staging server
-                req.Headers["Cookie"] = "RequestAccessCookie=Aut0d3sk!";
-                #endregion
-
-                NetLog.WriteTextLog("HomeController[HandleIPNNotification]: Sending notification to Autodesk Exchange for validate:" + strRequest);
-                //Send the request to Autodesk and get the response
-                StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII);
-                streamOut.Write(strRequest);
-                streamOut.Close();
-
-                StreamReader streamIn = new StreamReader(req.GetResponse().GetResponseStream());
-                strResponse = streamIn.ReadToEnd();
-                streamIn.Close();
-
-                NetLog.WriteTextLog("HomeController[HandleIPNNotification]: strResponse is: " + strResponse);
-
-                //If the IPN notification is valid one, then it was sent from Autodesk Exchange Store, 
-                //customer has already paied for my web service, not I can go ahead to create an account for him
-                //and enable him to access my web service
-                if (strResponse == "Verified")
+                if (verified)
                 {
-                    //buyer's email address which is used to buy the service
-                    string email = Request["buyer_adsk_account"];
+                    //If the IPN notification is valid one, then it was sent from Autodesk Exchange Store, 
+                    
+                  
+                    string txn_type = Request["txn_type"];
+                    if (txn_type == "subscr_signup")  // subscription signup
+                    {
+                        string subject = "Thank you for subscription ";
+                        string body = "You have subscribed this app/web service:" + thisapp
+                            + " for " + Request["period3"]  //TODO: tranlate the period3 value into more user friendly msg
+                            +" from " + Request["subscr_date"];
+                        string buyerEmail = Request["buyer_adsk_account"];
+                        SendEmail(buyerEmail, subject, body);
 
-                    //As an example solution, create an account with initial password
-                    //create an accout for the user with this email address and initial password
-                    string pwd = CreateAccountWithInitialPassword(email);
-                    GrantAccessToUser(email);
 
-                    //inform the customer how he can access your service with his intial account
-                    SendEmailToBuyer(email, email, pwd);
+                    }
+                    else if (txn_type == "subscr_payment") //subscription payment
+                    {
+                        string subject = "Thank you for subscription payment";
+                        string body = "You have paied your subscription of app/web service:" + thisapp
+                            + " on  " + Request["payment_date"];
+                        string buyerEmail = Request["buyer_adsk_account"];
+                        SendEmail(buyerEmail, subject, body);
+                        
+                    }
+                    else if (txn_type == "subscr_cancel") // sbuscrition cacel
+                    {
+                        string subject = "Your subscription is canceled";
+                        string body = "We are sorry to lose you from subscription of app/web service:" + thisapp
+                            + " on  " + Request["payment_date"];
+                        string buyerEmail = Request["buyer_adsk_account"];
+                        SendEmail(buyerEmail, subject, body);
+                    }
+                    else if (txn_type == "web_accept")    //one time payment
+                    {
+                        // check the payment status
+                        string payment_status = Request["payment_status"];
+                        if (String.Compare(payment_status, "Completed", true) != 0)
+                        {
+                            NetLog.WriteTextLog("HomeController[HandleIPNNotification - " + thisapp + "]: payment not completed yet.");
+                            return "Not paied";
+                        }
+
+                        ////customer has already paied for my web service, now I can go ahead to create an account for him
+                        //and enable him to access my web service
+
+                        //For priced app
+                        string quantity = Request["quantity"];
+                        //TODO: handle batch purchure
+
+                        //buyer's email address which is used to buy the service
+                        string email = Request["buyer_adsk_account"];
+
+                        //As an example solution, create an account with initial password
+                        //create an accout for the user with this email address and initial password
+                        string pwd = CreateAccountWithInitialPassword(email);
+                        GrantAccessToUser(email);
+
+                        //inform the customer how he can access your service with his intial account
+                        SendAccountInfoToBuyer(email, email, pwd);
+                    }
+                    else
+                    {
+                        NetLog.WriteTextLog("HomeController[HandleIPNNotification - " + thisapp + "]: unknown tranaction type.");
+                        return "unknown tranaction type";
+
+                    }
+
+                    
+                
                 }
                 else
                 {
-                    NetLog.WriteTextLog("HomeController[HandleIPNNotification]: IPN notifiacation is not verified. Someone is hacking me? Response is: " + strResponse);
+                    NetLog.WriteTextLog("HomeController[HandleIPNNotification - " + thisapp + "]: IPN notifiacation is not verified. Someone is hacking me? Response is: " + strResponse);
                 }
             }
             catch (System.Exception ex)
@@ -297,6 +385,79 @@ namespace Listener.Controllers
             }
 
             return strResponse;
+        }
+
+        private bool VerifyIpnValidation(string notification,  string thisapp)
+        {
+            string strResponse;
+
+            // POST IPN notification back to Autodesk Exchange to validate
+            //https://developer.paypal.com/webapps/developer/docs/classic/ipn/ht_ipn/
+            //For Autodesk Exchange Store, you do not need to contact with Paypal directly, valide with Autodesk Exchange
+            var postUrl = GetIpnValidationUrl();
+            NetLog.WriteTextLog("HomeController[HandleIPNNotification - " + thisapp + "]: posting to Autodesk Exchange: " + postUrl);
+
+
+            strResponse = GetResponseString(postUrl, notification);
+
+            if (strResponse == "Verified")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+
+            }
+        }
+
+        private string GetResponseString(string url, string poststring)
+        {
+            HttpWebRequest httpRequest =
+            (HttpWebRequest)WebRequest.Create(url);
+
+            httpRequest.Method = "POST";
+            httpRequest.ContentType = "application/x-www-form-urlencoded";
+
+            byte[] bytedata = Encoding.UTF8.GetBytes(poststring);
+            httpRequest.ContentLength = bytedata.Length;
+
+            Stream requestStream = httpRequest.GetRequestStream();
+            requestStream.Write(bytedata, 0, bytedata.Length);
+            requestStream.Close();
+
+
+            HttpWebResponse httpWebResponse =
+            (HttpWebResponse)httpRequest.GetResponse();
+            Stream responseStream = httpWebResponse.GetResponseStream();
+
+            StringBuilder sb = new StringBuilder();
+
+            using (StreamReader reader =
+            new StreamReader(responseStream, System.Text.Encoding.UTF8))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    sb.Append(line);
+                }
+            }
+
+            return sb.ToString();
+
+        }
+
+        private bool Preprocess_CheckAppId(string thisapp)
+        {
+            List<string> apps = GetMyPublishedApps(PUBLISHER_AUTODESK_ID_OR_EMAILADDRESS);
+
+            if (apps == null || string.IsNullOrWhiteSpace(thisapp) || apps.Contains(thisapp) == false)
+            {
+                NetLog.WriteTextLog("HomeController[HandleIPNNotification]: Not my App, just return.");
+                return false;
+            }
+            return true;
+          
         }
 
         private void GrantAccessToUser(string email)

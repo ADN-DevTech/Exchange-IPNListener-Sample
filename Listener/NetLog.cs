@@ -17,7 +17,7 @@ namespace Listener
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
 
-            string fileFullPath = path + DateTime.UtcNow.ToString("yyyy-MM-dd") + ".System.txt";
+            string fileFullPath = path + "log.txt";
             StringBuilder str = new StringBuilder();
             str.Append("Time:    " + DateTime.UtcNow.ToString() + "\r\n");
             str.Append("Message: " + strMessage + "\r\n");

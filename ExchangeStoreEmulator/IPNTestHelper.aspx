@@ -28,14 +28,17 @@
         Buyer Email:&nbsp;
         <asp:TextBox ID="txtBuyerEmail" runat="server" Width="693px">changyudu@163.com</asp:TextBox>
         <br />
-        <asp:Button ID="btnBuy" runat="server" onclick="btnBuy_Click" Text="Buy this app" 
-            Height="35px" Width="165px" />
+        <asp:Button ID="btnBuy" runat="server" onclick="btnBuy_Click" 
+            Text="Buy this app( one time payment)"/>
         <br />
         <br />
         <asp:Button ID="btnSubscribe" runat="server"  
             Text="Subscribe this app" onclick="btnSubscribe_Click" />
 &nbsp;<asp:Button ID="btnRenew" runat="server" onclick="btnRenew_Click" 
             Text="Renew my subscription" />
+        &nbsp;
+        <asp:Button ID="btnCancel" runat="server" onclick="btnCancel_Click" 
+            Text="Cancel my subscription" />
         <br />
         When customer buy an app/webservice, an IPN notification send to IPN Listener.<br />
         <br />
