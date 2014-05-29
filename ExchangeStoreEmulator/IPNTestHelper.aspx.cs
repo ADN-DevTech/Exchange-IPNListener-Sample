@@ -33,11 +33,11 @@ namespace ExchangeStoreEmulator
             string onetimeIpnNotificationTempate = @"transaction_subject=200703030249937" +
                 "&txn_type=web_accept&payment_date=23%3A36%3A36+Jan+11%2C+2014+PST" +
                 "&last_name=Balsom&residence_country=AU&item_name=RDBK_AutoNumber+Pro" +
-                "&payment_gross=5.50&mc_currency=USD&business=paypal@redbike.com.au" +
+                "&payment_gross=5.50&mc_currency=USD&business=paypal@company.com.au" +
                 "&payment_type=instant&protection_eligibility=Ineligible" +
                 "&payer_status=verified&verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6" +
-                "&tax=0.50&payer_email=mbalsom@shoal.net.au&txn_id=0AG18756HD086633A" +
-                "&quantity=1&receiver_email=paypal@redbike.com.au&first_name=MARK" +
+                "&tax=0.50&payer_email=name@company.net.au&txn_id=0AG18756HD086633A" +
+                "&quantity=1&receiver_email=paypal@company.com.au&first_name=MARK" +
                 "&payer_id=NEH6BJPL9LBYG&receiver_id=GDGRD3PAZBMD8" +
                 "&item_number={0}" +
                 "&handling_amount=0.00" +
@@ -173,7 +173,7 @@ namespace ExchangeStoreEmulator
                 "&payment_type=instant&protection_eligibility=Ineligible" +
                 "&verify_sign=Aw8jOlh0qjVJwUBom8vHwXnBIMQFAObdPVGABZ.j868wSztphYAUX1nX" +
                 "&payer_status=verified" +
-                "&test_ipn=1&payer_email=william_buyer%40autodesk.com" +
+                "&test_ipn=1&payer_email=buyer%40autodesk.com" +
                 "&txn_id=4UTFDS522R9208564" +         // here is the difference with the first payment notification
                 "&receiver_email=william_seller%40autodesk.com" +
                 "&first_name=williambuyer&payer_id=PYAX39C7LTU3E" +
@@ -210,7 +210,7 @@ namespace ExchangeStoreEmulator
                 "&amount3=0.99&recurring=1" +
                 "&verify_sign=ABr7TF1VNJRHrFfJkVMfCcSa87ETAiCAKc.zaQF0c5T2TSCq6jf8QFRT" +
                 "&payer_status=verified" +
-                "&test_ipn=1&payer_email=william_buyer%40autodesk.com" +
+                "&test_ipn=1&payer_email=buyer%40autodesk.com" +
                 "&first_name=williambuyer&receiver_email=william_seller%40autodesk.com" +
                 "&payer_id=PYAX39C7LTU3E&reattempt=1" +
                 "&item_number={0}" +

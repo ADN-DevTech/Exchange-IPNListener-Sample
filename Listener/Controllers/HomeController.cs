@@ -255,7 +255,7 @@ namespace Listener.Controllers
             &payer_email=mbalsom@shoal.net.au
             &txn_id=0AG18756HD086633A
             &quantity=1
-            &receiver_email=paypal@redbike.com.au
+            &receiver_email=paypal@company.com.au
             &first_name=MARK
             &payer_id=NEH6BJPL9LBYG
             &receiver_id=GDGRD3PAZBMD8
@@ -271,7 +271,7 @@ namespace Listener.Controllers
             &notify_version=3.7
             &auth=A6P4OiUSwAL6901WUc3VK.fiUaYTR5AND5h.XpBaMqrI8gSmid.n0tFsfAMP6u3unDXUuiABwGtZWQlN.RFtDcA
             &form_charset=UTF-8
-            &buyer_adsk_account=xxx@redbike.com.au   //this one is added by exchange store
+            &buyer_adsk_account=xxx@company.com.au   //this one is added by exchange store
 
             free app/web service IPN sent to publisher:
              
