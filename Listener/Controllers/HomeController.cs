@@ -246,13 +246,13 @@ namespace Listener.Controllers
             &item_name=RDBK_AutoNumber+Pro
             &payment_gross=5.50
             &mc_currency=USD
-            &business=paypal@redbike.com.au
+            &business=paypal@company.com.au
             &payment_type=instant
             &protection_eligibility=Ineligible
             &payer_status=verified
             &verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AsmAEVMnS38537K1tk5tZMnvtnW6
             &tax=0.50
-            &payer_email=mbalsom@shoal.net.au
+            &payer_email=buyer@company.net.au
             &txn_id=0AG18756HD086633A
             &quantity=1
             &receiver_email=paypal@company.com.au
