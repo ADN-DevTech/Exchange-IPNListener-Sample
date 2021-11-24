@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listener", "Listener\Listener.csproj", "{DE5D76E0-96EA-4E11-ACAA-6838F046B743}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeStoreEmulator", "ExchangeStoreEmulator\ExchangeStoreEmulator.csproj", "{B1ADBDFD-E365-46A9-9CD6-24A2550FC929}"
@@ -22,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87307E64-848C-4D48-BBC1-19F6CC483473}
 	EndGlobalSection
 EndGlobal
