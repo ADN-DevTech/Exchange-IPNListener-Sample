@@ -1,9 +1,5 @@
-> [!WARNING]
-> **DEPRECATED — For Historical Reference Only**
->
-> This repository is no longer maintained and is kept solely for historical reference.
-> The Autodesk App Store no longer requires an IPN (Instant Payment Notification) listener.
-> Do not use this code in new projects.
+> [!NOTE]
+> The Autodesk App Store IPN validation endpoint (`https://apps.exchange.autodesk.com/WebServices/ValidateIPN`) is **no longer active**.
 
 ---
 
